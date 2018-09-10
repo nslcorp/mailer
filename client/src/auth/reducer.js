@@ -1,13 +1,11 @@
 import * as types from './types';
 
-const initialState = { auth: false };
-
-export default (state = initialState, action) => {
+export default (state = null, action) => {
   const { type, payload } = action;
   console.log(action);
   switch (type) {
     case types.FETCH_USER:
-      return {};
+      return payload || false;
 
     default:
       return state;
