@@ -1,22 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import Header from './features/header';
+import { fetchUser } from './auth/actions';
+
+const Landing = () => <h2>Landing</h2>;
+const Dashboard = () => <h2>Dashboard</h2>;
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchUser();
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a href="/auth/google">SignIn with google</a>
-      </div>
+      <BrowserRouter>
+        <div className="container">
+          <Header />
+          <Route exact path="/" component={Landing} />
+          <Route path="/survey" component={Dashboard} />
+        </div>
+      </BrowserRouter>
     );
   }
 }
 
-export default App;
+export default connect(
+  null,
+  { fetchUser }
+)(App);
