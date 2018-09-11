@@ -23,14 +23,13 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/survetRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
-  console.log('here');
   app.use(express.static('client/build'));
 
   const path = require('path');
   app.get('*', (req, res) => {
-    console.log('here on request');
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
 }
