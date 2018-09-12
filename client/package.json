@@ -5,6 +5,7 @@
   "homepage": "https://immense-fjord-41035.herokuapp.com",
   "dependencies": {
     "axios": "^0.18.0",
+    "lodash": "^4.17.10",
     "materialize-css": "^1.0.0",
     "prop-types": "^15.6.2",
     "react": "^16.5.0",
@@ -14,6 +15,7 @@
     "react-scripts": "1.1.5",
     "react-stripe-checkout": "^2.6.3",
     "redux": "^4.0.0",
+    "redux-form": "^7.4.2",
     "redux-thunk": "^2.3.0"
   },
   "scripts": {

@@ -3,9 +3,9 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Header from './features/header';
 import Landing from './features/landing';
+import Dashboard from './features/dashboard';
+import SurveyNew from './features/survey-new';
 import { doFetchUser } from './auth/actions';
-
-const Dashboard = () => <h2>Dashboard</h2>;
 
 class App extends Component {
   componentDidMount() {
@@ -19,6 +19,7 @@ class App extends Component {
           <Header />
           <Route exact path="/" component={Landing} />
           <Route path="/surveys" component={Dashboard} />
+          <Route path="/surveys/new" component={SurveyNew} />
         </div>
       </BrowserRouter>
     );
