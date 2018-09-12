@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const Recipient = require('./Recipient').Recipient;
+const recipientSchema = require('./Recipient').recipientSchema;
 
 const surveySchema = new Schema({
   title: String,
   subject: String,
   body: String,
-  recipients: [Recipient],
+  recipients: [recipientSchema],
   yes: { type: Number, default: 0 },
   no: { type: Number, default: 0 },
   _user: { type: Schema.ObjectId, ref: 'User' },
