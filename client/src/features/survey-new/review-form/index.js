@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { withRouter } from 'react-router-dom';
 import _ from 'lodash';
 
 import { FIELDS } from '../form';
@@ -20,7 +22,7 @@ const ReviewForm = props => (
     </button>
     <button
       className="green btn-flat right white-text"
-      onClick={() => props.doSubmitSurvey(props.formValues)}
+      onClick={() => props.doSubmitSurvey(props.formValues, props.history)}
     >
       Send Survey
       <i className="material-icons right">email</i>
@@ -31,6 +33,7 @@ const ReviewForm = props => (
 ReviewForm.propTypes = {
   onCancel: PropTypes.func.isRequired,
   doSubmitSurvey: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
   formValues: PropTypes.shape().isRequired
 };
 
@@ -38,7 +41,12 @@ const mapStateToProps = state => ({
   formValues: state.form['add-survey'].values
 });
 
-export default connect(
+const withConnect = connect(
   mapStateToProps,
   { doSubmitSurvey }
+);
+
+export default compose(
+  withConnect,
+  withRouter
 )(ReviewForm);

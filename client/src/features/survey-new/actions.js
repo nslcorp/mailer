@@ -1,4 +1,9 @@
 // import * as types from './types';
-export const doSubmitSurvey = values => dispatch => ({
-  type: 'DO_REQUEST'
-});
+import { FETCH_USER } from '../../auth/types';
+import axios from 'axios';
+
+export const doSubmitSurvey = (values, history) => async dispatch => {
+  const res = await axios.post('/api/surveys', values);
+  history.push('/surveys');
+  dispatch({ type: FETCH_USER, payload: res.data });
+};
