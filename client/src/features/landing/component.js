@@ -1,13 +1,11 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 
 const Landing = () => (
   <div>
     <h3>Emaily</h3>
-    <p>Will be done soon...</p>
+    <p>Will be done soon... </p>
+    <p>GoTo /surveys || surveys/new</p>
   </div>
 );
-
-Landing.propTypes = {};
 
 export default Landing;

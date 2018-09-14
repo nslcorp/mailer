@@ -1,8 +1,11 @@
 
+Backend: NodeJs, Express, Stripe (Payments), MongoDb (mLab), Localtunel, GoogleAuth, Sendgrid (Email), Heroku CLI
+Frontend: React, Readux, Redux-thunk, Redux-Form, Redux-Stripe
+
+
 
 https://app.sendgrid.com/
 https://mlab.com/
-
 
 Survey.findOne({
   id: surveyId,
