@@ -8,7 +8,12 @@ const Mailer = require('../services/Mailer');
 const emailTemplate = require('../services/emailTemplate');
 
 module.exports = app => {
-  app.get('/api/surveys/thanks', (req, res) => {
+  app.get('/api/surveys/', requireLogin, async (req, res) => {
+    const user = await Survey.find({ _user: req.user.id }).select({ recipients: false });
+    res.json(user);
+  });
+
+  app.get('/api/surveys/:surveyId/:choice', (req, res) => {
     res.send('Thanks from voting!');
   });
 
@@ -66,12 +71,11 @@ module.exports = app => {
           },
           {
             $inc: { [event.choice]: 1 },
-            $set: { 'recipients.$.responded': true }
+            $set: { 'recipients.$.responded': true },
+            lastResponded: new Date()
           }
         ).exec();
       })
       .value();
-
-    console.log(events);
   });
 };
