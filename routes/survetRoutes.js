@@ -1,5 +1,5 @@
 const _ = require('lodash');
-const Path = require('path-parser');
+const Path = require('path-parser').default;
 const { URL } = require('url');
 const Survey = require('../models/Survey').Survey;
 const requireLogin = require('../middlewares/requireLogin');
