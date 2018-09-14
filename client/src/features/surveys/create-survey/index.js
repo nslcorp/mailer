@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import AddSurveyForm from './form';
-import ReviewForm from './review-form';
+import CreateSurveyForm from './form/index';
+import ReviewForm from './review/index';
 
-class SurveyNew extends Component {
+class CreateSurvey extends Component {
   state = { showReviewForm: false };
 
   handleSubmit = () => {
@@ -16,13 +16,11 @@ class SurveyNew extends Component {
 
     return (
       <div>
-        <h2>SurveyNew</h2>
-        <AddSurveyForm onSubmit={this.handleSubmit} />
+        <h2>CreateSurvey</h2>
+        <CreateSurveyForm onSubmit={this.handleSubmit} />
       </div>
     );
   }
 }
 
-SurveyNew.propTypes = {};
-
-export default SurveyNew;
+export default CreateSurvey;

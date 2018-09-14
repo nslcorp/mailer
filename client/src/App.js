@@ -3,8 +3,8 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Header from './features/header';
 import Landing from './features/landing';
-import Dashboard from './features/dashboard';
-import SurveyNew from './features/survey-new';
+import Surveys from './features/surveys';
+import CreateSurvey from './features/surveys/create-survey';
 import { doFetchUser } from './auth/actions';
 
 class App extends Component {
@@ -18,8 +18,8 @@ class App extends Component {
         <div className="container">
           <Header />
           <Route exact path="/" component={Landing} />
-          <Route path="/surveys" component={Dashboard} />
-          <Route path="/surveys/new" component={SurveyNew} />
+          <Route exact path="/surveys" component={Surveys} />
+          <Route path="/surveys/new" component={CreateSurvey} />
         </div>
       </BrowserRouter>
     );

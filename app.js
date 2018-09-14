@@ -7,7 +7,10 @@ const keys = require('./config/keys');
 
 require('./services/passport');
 
-mongoose.connect(keys.monoURI);
+mongoose.connect(
+  keys.monoURI,
+  { useNewUrlParser: true }
+);
 
 const app = express();
 

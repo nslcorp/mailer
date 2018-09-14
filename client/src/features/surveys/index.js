@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-class Dashboard extends Component {
+import List from './list';
+
+class Surveys extends Component {
   render() {
     return (
       <div>
+        <List />
         <div className="fixed-action-btn">
           <Link to="/surveys/new" className="btn-floating btn-large red">
             <i className="material-icons">add</i>
@@ -16,6 +18,4 @@ class Dashboard extends Component {
   }
 }
 
-// Dashboard.propTypes = {};
-
-export default Dashboard;
+export default Surveys;

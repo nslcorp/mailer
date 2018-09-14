@@ -5,10 +5,10 @@ import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
 import _ from 'lodash';
 
-import { FIELDS } from '../form';
-import { doSubmitSurvey } from '../actions';
+import { FIELDS } from '../form/index';
+import { doSubmitSurvey } from '../../actions';
 
-const ReviewForm = props => (
+const Review = props => (
   <div>
     <h5>Please confirm your entries</h5>
     {_.map(FIELDS, ({ name, label }) => (
@@ -30,7 +30,7 @@ const ReviewForm = props => (
   </div>
 );
 
-ReviewForm.propTypes = {
+Review.propTypes = {
   onCancel: PropTypes.func.isRequired,
   doSubmitSurvey: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
@@ -40,7 +40,6 @@ ReviewForm.propTypes = {
 const mapStateToProps = state => ({
   formValues: state.form['add-survey'].values
 });
-
 const withConnect = connect(
   mapStateToProps,
   { doSubmitSurvey }
@@ -49,4 +48,4 @@ const withConnect = connect(
 export default compose(
   withConnect,
   withRouter
-)(ReviewForm);
+)(Review);

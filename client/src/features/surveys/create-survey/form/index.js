@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import { reduxForm, Field, clearFields } from 'redux-form';
+import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { validateFields } from './utils';
 
@@ -21,7 +21,7 @@ export const FIELDS = [
   { name: 'recipients', label: 'Recipient List' }
 ];
 
-const AddSurveyForm = props => {
+const CreateSurveyForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
   console.log(props);
   return (
@@ -47,4 +47,4 @@ export default reduxForm({
   form: 'add-survey',
   validate: validateFields,
   destroyOnUnmount: false
-})(AddSurveyForm);
+})(CreateSurveyForm);
