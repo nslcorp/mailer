@@ -50,6 +50,7 @@ module.exports = app => {
       .map(event => {
         const pathname = new URL(event.url).pathname;
         const match = p.test(pathname); //{surveyId: data, choice: data} || null
+        console.log('match', match);
 
         if (match) {
           return {
@@ -77,5 +78,7 @@ module.exports = app => {
         ).exec();
       })
       .value();
+
+    res.send('OK');
   });
 };
